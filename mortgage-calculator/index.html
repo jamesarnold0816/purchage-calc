@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">WEB Calculators</a>
+            </div>
+            <nav class="calculator-tabs">
+                <ul>
+                    <li><a href="../maximum-mortgage/index.html">Maximum Mortgage</a></li>
+                    <li><a href="../closing-costs/index.html">Closing Costs</a></li>
+                    <li><a href="../comparison-calculator/index.html">Compare Side by Side</a></li>
+                    <li><a href="../purchase/index.html">Purchase</a></li>
+                    <li><a href="../required-income/index.html">Required Income</a></li>
+                    <li class="active"><a href="index.html">Mortgage Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="calculator-container">
+        <h1>Mortgage Calculator</h1>
+
+        <div class="calculator-form">
+            <!-- Main Calculator Form -->
+            <div class="calculator-inputs">
+                <!-- Mortgage Amount Section -->
+                <div class="input-section mortgage-amount-section">
+                    <label for="mortgage-amount">Mortgage Amount</label>
+                    <div class="input-field">
+                        <input type="text" id="mortgage-amount" value="$500,000">
+                    </div>
+                    <div class="slider-container">
+                        <div class="mortgage-amount-slider">
+                            <div class="slider-track"></div>
+                            <div class="slider-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Frequency Section -->
+                <div class="input-section payment-frequency-section">
+                    <label for="payment-frequency">Payment Frequency</label>
+                    <div class="dropdown-field">
+                        <select id="payment-frequency">
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="accelerated">Accelerated Bi-weekly</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="acc-weekly">Accelerated Weekly</option>
+                        </select>
+                        <div class="dropdown-arrow"></div>
+                    </div>
+                </div>
+
+                <!-- Rate Section -->
+                <div class="section rate-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3>Rate</h3>
+                    </div>
+                    <p class="section-description">
+                        Your mortgage interest rate can either be Fixed for the term or Variable (which changes with the prime rate). The Rate Term is the contract length with a lender.
+                    </p>
+
+                    <div class="rate-inputs">
+                        <div class="rate-input-field">
+                            <label for="rate">Rate</label>
+                            <input type="text" id="rate" value="6.29%">
+                        </div>
+                        <div class="rate-type-buttons">
+                            <button id="fixed-rate" class="rate-button active">FIXED</button>
+                            <button id="variable-rate" class="rate-button">VARIABLE</button>
+                        </div>
+                        <div class="rate-term-field">
+                            <label for="rate-term">Rate Term</label>
+                            <div class="dropdown-field">
+                                <select id="rate-term">
+                                    <option value="5">5 Year</option>
+                                    <option value="1">1 Year</option>
+                                    <option value="2">2 Year</option>
+                                    <option value="3">3 Year</option>
+                                    <option value="4">4 Year</option>
+                                    <option value="7">7 Year</option>
+                                    <option value="10">10 Year</option>
+                                </select>
+                                <div class="dropdown-arrow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amortization Section -->
+                <div class="section amortization-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3>Amortization</h3>
+                        <a href="#" class="view-schedule-link">View schedule</a>
+                    </div>
+                    <p class="section-description">
+                        Amortization is the total time it takes to pay off your mortgage in full. New mortgages usually start with an amortization of 25 years or 30 years in Canada.
+                    </p>
+
+                    <div class="amortization-inputs">
+                        <label>Amortization</label>
+                        <div class="amortization-years-months">
+                            <input type="text" id="amortization-years" value="25 years">
+                            <input type="text" id="amortization-months" value="0 months">
+                        </div>
+                        <div class="slider-container">
+                            <div class="amortization-slider">
+                                <div class="slider-track"></div>
+                                <div class="slider-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pay Faster Toggle -->
+                <div class="section pay-faster-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg>
+                        </div>
+                        <h3>Pay your mortgage faster</h3>
+                        <div class="toggle-switch">
+                            <label class="switch">
+                                <input type="checkbox" id="pay-faster-toggle">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="results-panel">
+                <div class="settings-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                </div>
+
+                <div class="payment-result">
+                    <h4>Mortgage Payment</h4>
+                    <div class="payment-amount">
+                        <span class="amount">$3,286</span>
+                        <span class="frequency">Monthly</span>
+                    </div>
+                </div>
+
+                <div class="payment-tabs">
+                    <div class="tab active" data-tab="payment">Payment</div>
+                    <div class="tab" data-tab="term">Term</div>
+                    <div class="tab" data-tab="total">Total</div>
+                </div>
+
+                <div class="tab-content">
+                    <div id="payment-tab-content" class="tab-pane active">
+                        <h4>Payment breakdown</h4>
+                        <div class="breakdown-chart">
+                            <div class="chart-bar">
+                                <div class="principal-bar" style="width: 20%;"></div>
+                                <div class="interest-bar" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="breakdown-items">
+                            <div class="breakdown-item principal">
+                                <div class="breakdown-dot"></div>
+                                <div class="breakdown-label">Principal Paid</div>
+                                <div class="breakdown-value">$698.59</div>
+                            </div>
+                            <div class="breakdown-item interest">
+                                <div class="breakdown-dot"></div>
+                                <div class="breakdown-label">Interest Paid</div>
+                                <div class="breakdown-value">$2,587.14</div>
+                            </div>
+                        </div>
+                        <div class="total-payment">
+                            <div class="total-label">Total payment</div>
+                            <div class="total-value">$3,285.72</div>
+                        </div>
+                    </div>
+                    <div id="term-tab-content" class="tab-pane">
+                        <h4>Term Summary</h4>
+                        <div class="term-summary">
+                            <div class="summary-item">
+                                <div class="summary-label">Term Length</div>
+                                <div class="summary-value">5 years</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Principal Paid</div>
+                                <div class="summary-value principal-term">$45,678</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Interest Paid</div>
+                                <div class="summary-value interest-term">$151,320</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Total Payments</div>
+                                <div class="summary-value total-term">$196,998</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Balance at End of Term</div>
+                                <div class="summary-value balance-term">$450,996.52</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="total-tab-content" class="tab-pane">
+                        <h4>Total Summary</h4>
+                        <div class="total-summary">
+                            <div class="summary-item">
+                                <div class="summary-label">Amortization Period</div>
+                                <div class="summary-value">25 years</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Principal Paid</div>
+                                <div class="summary-value principal-total">$500,000</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Interest Paid</div>
+                                <div class="summary-value interest-total">$485,716</div>
+                            </div>
+                            <div class="summary-item">
+                                <div class="summary-label">Total Cost</div>
+                                <div class="summary-value total-cost">$985,716</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="balance-end-of-term">
+                    <div class="balance-label">Balance end of Term</div>
+                    <div class="balance-value">$450,996.52</div>
+                </div>
+
+                <div class="effective-amortization">
+                    <div class="effective-label">Effective Amortization</div>
+                    <div class="effective-value">25 Years</div>
+                </div>
+
+                <button id="get-report-btn">Get your Report</button>
+
+                <div class="app-note">It's better in the app</div>
+
+                <div class="brand">Powered by Bendigi Inc.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html> 

@@ -1,0 +1,1219 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 50px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Header and Navigation */
+.main-header {
+    background-color: #2c3e50;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    padding: 15px 0;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.calculator-tabs ul {
+    list-style: none;
+    display: flex;
+}
+
+
+.calculator-tabs a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 10px 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.calculator-tabs a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.calculator-tabs li.active a {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+/* Calculator Container */
+.calculator-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.welcome-section h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.welcome-section p {
+    font-size: 18px;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Calculator Grid */
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Calculator Card */
+.calculator-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.calculator-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    margin-bottom: 20px;
+    background-color: #f0f4f8;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator-card h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.calculator-card p {
+    color: #666;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.card-button {
+    display: inline-block;
+    background-color: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.card-button:hover {
+    background-color: #1a252f;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer p {
+    opacity: 0.8;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    .main-header .container {
+        flex-direction: column;
+    }
+    
+    .logo {
+        margin-bottom: 15px;
+    }
+    
+    .calculator-tabs ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+   
+    
+    .welcome-section h1 {
+        font-size: 30px;
+    }
+    
+    .welcome-section p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 15px;
+    }
+    
+    .calculator-grid {
+        gap: 20px;
+    }
+    
+    .calculator-card {
+        padding: 20px;
+    }
+}
+
+/* Calculator Form Layout */
+.calculator-form {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    position: relative;
+    border: 2px solid #e0e0e0;
+}
+
+.left-column {
+    flex: 1;
+    min-width: 500px;
+}
+
+.right-column {
+    width: 320px;
+    position: relative;
+    margin-top: 10px;
+}
+
+/* Fixed Results Box */
+.results-box-container {
+    width: 100%;
+    position: relative;
+}
+
+.fixed-results-box {
+    position: relative;
+    width: 320px;
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 13px;
+    overflow: hidden;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* When enough viewport height is available and we're scrolled down, fix position */
+.fixed-results-box.fixed {
+    position: fixed;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.fixed-results-box::-webkit-scrollbar {
+    display: none;
+}
+
+/* Input Sections */
+.input-section {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+}
+
+.input-section label {
+    display: block;
+    padding: 10px 15px 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Updated Input Field Styling */
+.input-field {
+    position: relative;
+    padding: 5px 15px 10px;
+    background-color: #fff;
+}
+
+.input-field.full-width {
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+.input-field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: transparent;
+}
+
+.input-field:focus-within {
+    border-color: #4361ee;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    padding: 0 15px 10px;
+}
+
+.input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Select Dropdown Styling */
+.select-wrapper {
+    position: relative;
+    min-width: 100px;
+}
+
+.select-wrapper.full-width {
+    width: 100%;
+}
+
+.dropdown-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    padding: 10px 30px 10px 15px;
+    border: none;
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+}
+
+.dropdown-select:focus {
+    outline: none;
+    border-color: #4361ee;
+}
+
+.select-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    pointer-events: none;
+}
+
+/* Price Slider */
+.price-slider, 
+.rate-slider, 
+.amortization-slider, 
+.property-tax-slider,
+.condo-fees-slider,
+.heat-slider,
+.other-expenses-slider {
+    height: 8px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    position: relative;
+    cursor: pointer;
+    /* margin: 0 15px 15px; */
+}
+
+.slider-track {
+    width: 35%;
+    height: 100%;
+    background-color: #2563EB;
+    border-radius: 4px;
+}
+
+.slider-thumb {
+    width: 22px;
+    height: 22px;
+    background-color: #fff;
+    border: 2px solid #2563EB;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Separator */
+.separator {
+    height: 2px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+}
+
+/* Checkboxes */
+.checkbox-section {
+    margin-bottom: 20px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    accent-color: #2563EB;
+}
+
+.checkbox-item label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Section Styling */
+.section {
+    margin-bottom: 25px;
+    border-radius: 8px;
+    border: 2px solid #e0e0e0;
+    padding: 15px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.icon-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #eef2ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.icon-circle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.section-header h3 {
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+    font-weight: 600;
+}
+
+.view-link {
+    color: #2563EB;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.rate-description,
+.amortization-description,
+.expenses-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    width: 40px;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.toggle-track {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.toggle-thumb {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+    border: 1px solid #ccc;
+}
+
+.toggle-switch.active .toggle-track {
+    background-color: #2563EB;
+}
+
+.toggle-switch.active .toggle-thumb {
+    transform: translateX(20px);
+}
+
+/* Rate Section Styling */
+.rate-section-content {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.rate-input-wrapper {
+    margin-bottom: 10px;
+}
+
+.rate-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.rate-type-container {
+    margin: 15px 0;
+}
+
+.rate-type-buttons {
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    width: fit-content;
+    border: 2px solid #2563EB;
+}
+
+.rate-btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    color: #2563EB;
+}
+
+.rate-btn.active {
+    background-color: #2563EB;
+    color: white;
+}
+
+.term-group {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+/* Amortization Section Styling */
+.amortization-input-wrapper {
+    margin-bottom: 15px;
+}
+
+.amortization-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.amortization-years-months {
+    display: flex;
+    gap: 15px;
+}
+
+.amortization-years, .amortization-months {
+    padding: 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    flex: 1;
+}
+
+.amortization-years input, .amortization-months input {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Expense Input Styling */
+.expenses-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.expense-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.property-tax-inputs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.expense-input-field {
+    position: relative;
+  
+    padding: 5px 15px;
+    flex: 1;
+}
+
+.expense-input-field.monthly-field,
+.expense-input-field.yearly-field {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 5px;
+    flex: 1;
+}
+
+.expense-input-field label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 2px;
+    display: block;
+    padding: 0;
+}
+
+.expense-input-field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background: transparent;
+}
+
+.expense-input-field.with-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-icon {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.expense-item {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/* Results Box */
+.results-box {
+    background-color: white;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid #e0e0e0;
+    border-top: 4px solid #2563EB;
+    font-size: 0.95em;
+}
+
+.settings-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #999;
+    cursor: pointer;
+}
+
+.result-header {
+    padding: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.result-title {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.result-amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0366d6;
+}
+
+/* Cost Bar */
+.cost-bar {
+    height: 10px;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 15px 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.mortgage-bar {
+    flex: 3844;
+    background-color: #2563EB;
+}
+
+.expenses-bar {
+    flex: 1033;
+    background-color: #10B981;
+}
+
+/* Payment Details */
+.payment-details {
+    padding: 15px 20px;
+    margin-bottom: 0;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.payment-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.payment-dot.monthly {
+    background-color: #2563EB;
+}
+
+.payment-dot.home {
+    background-color: #10B981;
+}
+
+.payment-dot.other {
+    background-color: #ffd166;
+}
+
+.payment-dot.rental {
+    background-color: #06d6a0;
+}
+
+.payment-label {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+}
+
+.payment-value {
+    font-size: 13px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Totals Section */
+.totals-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-top: 2px solid #e0e0e0;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 20px;
+}
+
+.totals-item {
+    text-align: center;
+}
+
+.totals-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.totals-value {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Tab Buttons for Mortgage Amount and Closing Costs */
+.tab-buttons {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin: 0;
+    padding: 0 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.tab-btn.active {
+    color: #0366d6;
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0366d6;
+}
+
+.tab-content {
+    display: none;
+    padding: 10px 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.details-section.active {
+    display: block;
+}
+
+.tab-content-container {
+    padding: 0 20px;
+    margin-bottom: 15px;
+}
+
+/* Totals Section */
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+/* Closing costs styling to match image */
+.closing-cost-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 2px 0;
+}
+
+.closing-cost-row.total {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.closing-cost-label {
+    color: #333;
+    font-size: 14px;
+}
+
+.closing-cost-value {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Details Section */
+.details-section {
+    margin-bottom: 0;
+    padding: 15px 20px;
+    max-height: none;
+    overflow-y: visible;
+    border-bottom: 2px solid #e0e0e0;
+    display: none;
+}
+
+.details-section.active {
+    display: block;
+}
+
+.details-section h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.details-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.checkbox-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    accent-color: #2563EB;
+    border: 2px solid #999;
+}
+
+.checkbox-container label {
+    font-size: 13px;
+    color: #333;
+}
+
+.details-label {
+    flex: 1;
+    font-size: 13px;
+    color: #333;
+}
+
+.details-value {
+    font-size: 13px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Download Button */
+.download-section {
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    padding: 20px;
+    border-top: 2px solid #e0e0e0;
+    z-index: 10;
+}
+
+.download-btn {
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #8351e4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.download-btn:hover {
+    background-color: #7340d3;
+}
+
+.app-note {
+    font-size: 13px;
+    color: #2563EB;
+    margin-bottom: 8px;
+}
+
+.brand {
+    font-size: 11px;
+    color: #999;
+}
+
+/* Optional Fields Styling */
+.optional-label:after {
+    content: " (optional)";
+    font-size: 12px;
+    color: #999;
+}
+
+/* Responsive Design */
+/* Medium screens (tablet landscape) */
+@media (max-width: 937px) and (min-width: 769px) {
+    .calculator-form {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .left-column {
+        flex: 1;
+        min-width: auto;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    
+    .right-column {
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .fixed-results-box {
+        position: relative;
+        width: 100%;
+        max-height: none;
+        box-sizing: border-box;
+    }
+    
+    .fixed-results-box.fixed {
+        position: relative;
+        width: 100%;
+    }
+    
+    .results-box-container {
+        width: 100%;
+    }
+    
+    .results-box {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    /* Ensure transition between view sizes is smooth */
+    .tab-content-container {
+        padding: 0 20px;
+    }
+    
+    .details-section {
+        padding: 15px 20px;
+    }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 10px;
+    }
+    
+    .calculator-form {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .left-column {
+        flex: 1;
+        min-width: auto;
+        order: 2;
+        width: 100%;
+    }
+    
+    .right-column {
+        width: 100%;
+        order: 1;
+        margin-bottom: 20px;
+    }
+    
+    .fixed-results-box {
+        position: relative;
+        width: 100%;
+        max-height: none;
+        box-sizing: border-box;
+    }
+    
+    .fixed-results-box.fixed {
+        position: relative;
+        width: 100%;
+    }
+    
+    .results-box-container {
+        width: 100%;
+    }
+    
+    .results-box {
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    .input-section {
+        padding: 8px;
+    }
+    
+    /* Make sliders more touch-friendly on mobile */
+    .slider-thumb {
+        width: 26px;
+        height: 26px;
+    }
+    
+    /* Adjust tab buttons for mobile */
+    .tab-buttons {
+        padding: 0 15px;
+    }
+    
+    .tab-btn {
+        padding: 8px 5px;
+        font-size: 14px;
+    }
+    
+    /* Ensure the app fits mobile viewport */
+    .calculator-container {
+        margin: 0;
+        max-width: 100%;
+    }
+    
+    /* Adjust amortization inputs for mobile */
+    .amortization-years-months {
+        gap: 10px;
+    }
+    
+    /* Make property tax inputs stack on small mobile screens */
+    @media (max-width: 480px) {
+        .property-tax-inputs {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+    
+    .tab-content-container {
+        padding: 0 15px;
+    }
+    
+    .closing-cost-row {
+        margin-bottom: 6px;
+    }
+    
+    .details-section {
+        padding: 12px 15px;
+    }
+}
+
+/* Text consistency */
+.result-title,
+.payment-label,
+.totals-label,
+.closing-cost-label,
+.details-label,
+.expense-label {
+    font-size: 14px;
+    color: #666;
+}
+
+.payment-value,
+.totals-value,
+.closing-cost-value,
+.details-value {
+    font-size: 14px;
+    color: #333;
+    font-weight: 700;
+}
+
+/* Consistent font sizes throughout */
+.section-header h3,
+.details-section h3,
+.tab-btn {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Make all payment info consistent */
+.payment-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Consistent spacing for details items */
+.details-item {
+    margin-bottom: 10px;
+}
+
+/* Ensure closing button stays in place */
+.download-section {
+    padding: 20px;
+}
+
+/* Animated value effects */
+.result-amount,
+.payment-value,
+.totals-value,
+.closing-cost-value,
+.details-value {
+    transition: color 0.2s ease;
+}
+
+.value-changing {
+    color: #0366d6;
+    font-weight: 700;
+}
+
+/* Cost bar transition */
+.mortgage-bar,
+.expenses-bar {
+    transition: flex 0.8s ease-out;
+}

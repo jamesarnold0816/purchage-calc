@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Comparison Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">WEB Calculators</a>
+            </div>
+            <nav class="calculator-tabs">
+                <ul>
+                    <li><a href="../maximum-mortgage/index.html">Maximum Mortgage</a></li>
+                    <li><a href="../closing-costs/index.html">Closing Costs</a></li>
+                    <li class="active"><a href="index.html">Compare Side by Side</a></li>
+                    <li><a href="../purchase/index.html">Purchase</a></li>
+                    <li><a href="../required-income/index.html">Required Income</a></li>
+                    <li><a href="../mortgage-calculator/index.html">Mortgage Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="calculator-container">
+        <h1>Compare side by side</h1>
+        <div class="create-report-button-top">
+            <button class="create-report">Create a Comparison Report</button>
+        </div>
+
+        <div class="toggle-group">
+            <div class="toggle-option active">Multiple</div>
+            <div class="toggle-option">Single</div>
+        </div>
+
+        <!-- Home Price Section -->
+        <div class="input-section home-price-section">
+            <label for="home-price">HOME PRICE</label>
+            <div class="input-field">
+                <input type="text" id="home-price" value="$500,000">
+            </div>
+        </div>
+
+        <!-- Scenarios Section -->
+        <div class="scenarios-section">
+            <div class="scenarios-header">
+                <h2>Scenarios</h2>
+                <button class="add-scenario">Add scenario</button>
+            </div>
+
+            <div class="scenarios-container">
+                <!-- Scenario 1 -->
+                <div class="scenario-box active" data-scenario="1">
+                    <div class="scenario-header">
+                        <div class="star-icon active">★</div>
+                        <h3>Scenario 1</h3>
+                        <div class="edit-icon">✎</div>
+                    </div>
+                    <div class="scenario-options">
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="first-time-1" checked>
+                            <label for="first-time-1">First Time Homebuyer</label>
+                        </div>
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="newly-built-1">
+                            <label for="newly-built-1">Newly Built Home</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 2 -->
+                <div class="scenario-box" data-scenario="2">
+                    <div class="scenario-header">
+                        <div class="star-icon">☆</div>
+                        <h3>Scenario 2</h3>
+                        <div class="edit-icon">✎</div>
+                    </div>
+                    <div class="scenario-options">
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="first-time-2">
+                            <label for="first-time-2">First Time Homebuyer</label>
+                        </div>
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="newly-built-2">
+                            <label for="newly-built-2">Newly Built Home</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scenario 3 -->
+                <div class="scenario-box" data-scenario="3">
+                    <div class="scenario-header">
+                        <div class="star-icon">☆</div>
+                        <h3>Scenario 3</h3>
+                        <div class="edit-icon">✎</div>
+                    </div>
+                    <div class="scenario-options">
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="first-time-3">
+                            <label for="first-time-3">First Time Homebuyer</label>
+                        </div>
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="newly-built-3">
+                            <label for="newly-built-3">Newly Built Home</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mortgage Section -->
+        <div class="section-header">
+            <h2>Mortgage</h2>
+        </div>
+
+        <div class="mortgage-container">
+            <!-- Scenario 1 Mortgage -->
+            <div class="mortgage-box" data-scenario="1">
+                <div class="down-payment">
+                    <label>Down Payment</label>
+                    <div class="dropdown-field">
+                        <select id="down-payment-percentage-1">
+                            <option value="10">10%</option>
+                            <option value="5">5%</option>
+                            <option value="15">15%</option>
+                            <option value="20">20%</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="down-payment-1" value="$50,000">
+                    </div>
+                    <div class="apply-button">
+                        <button class="apply-all">Apply to all</button>
+                    </div>
+                </div>
+                <div class="mortgage-insurance">
+                    <span class="insurance-label">+ $13,950 Mortgage Insurance</span>
+                </div>
+                <div class="mortgage-amount">
+                    <label>Mortgage Amount</label>
+                    <span class="amount">$463,950</span>
+                </div>
+            </div>
+
+            <!-- Scenario 2 Mortgage -->
+            <div class="mortgage-box" data-scenario="2">
+                <div class="down-payment">
+                    <label>Down Payment</label>
+                    <div class="dropdown-field">
+                        <select id="down-payment-percentage-2">
+                            <option value="10">10%</option>
+                            <option value="5">5%</option>
+                            <option value="15">15%</option>
+                            <option value="20">20%</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="down-payment-2" value="$50,000">
+                    </div>
+                    <div class="apply-button">
+                        <button class="apply-all">Apply to all</button>
+                    </div>
+                </div>
+                <div class="mortgage-insurance">
+                    <span class="insurance-label">+ $13,950 Mortgage Insurance</span>
+                </div>
+                <div class="mortgage-amount">
+                    <label>Mortgage Amount</label>
+                    <span class="amount">$463,950</span>
+                </div>
+            </div>
+
+            <!-- Scenario 3 Mortgage -->
+            <div class="mortgage-box" data-scenario="3">
+                <div class="down-payment">
+                    <label>Down Payment</label>
+                    <div class="dropdown-field">
+                        <select id="down-payment-percentage-3">
+                            <option value="10">10%</option>
+                            <option value="5">5%</option>
+                            <option value="15">15%</option>
+                            <option value="20">20%</option>
+                            <option value="25">25%</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" id="down-payment-3" value="$50,000">
+                    </div>
+                    <div class="apply-button">
+                        <button class="apply-all">Apply to all</button>
+                    </div>
+                </div>
+                <div class="mortgage-insurance">
+                    <span class="insurance-label">+ $13,950 Mortgage Insurance</span>
+                </div>
+                <div class="mortgage-amount">
+                    <label>Mortgage Amount</label>
+                    <span class="amount">$463,950</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Term Section -->
+        <div class="section-header">
+            <h2>Term</h2>
+        </div>
+
+        <div class="term-container">
+            <!-- Scenario 1 Term -->
+            <div class="term-box" data-scenario="1">
+                <div class="rate-section">
+                    <div class="rate-header">
+                        <label>Rate</label>
+                        <div class="edit-rate">
+                            <a href="#">Add 8 rates</a>
+                        </div>
+                    </div>
+                    <div class="rate-input">
+                        <input type="text" value="5.25%">
+                    </div>
+                    <div class="term-selection">
+                        <div class="term-button active">5 Year Fixed</div>
+                    </div>
+                    <div class="term-edit-button">
+                        <button class="edit">Edit</button>
+                    </div>
+                </div>
+
+                <div class="amortization">
+                    <label>Amortization</label>
+                    <div class="amortization-years">
+                        <select>
+                            <option value="25">25 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30">30 Years</option>
+                        </select>
+                    </div>
+                    <div class="amortization-months">
+                        <select>
+                            <option value="0">0 Month</option>
+                            <option value="1">1 Month</option>
+                            <option value="2">2 Months</option>
+                            <option value="3">3 Months</option>
+                        </select>
+                    </div>
+                    <div class="apply-button">
+                        <button class="apply-all">Apply to all</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2 Term -->
+            <div class="term-box" data-scenario="2">
+                <div class="rate-section">
+                    <div class="rate-header">
+                        <label>Rate</label>
+                        <div class="edit-rate">
+                            <a href="#">Add 8 rates</a>
+                        </div>
+                    </div>
+                    <div class="rate-input">
+                        <input type="text" value="5.25%">
+                    </div>
+                    <div class="term-selection">
+                        <div class="term-button active">5 Year Fixed</div>
+                    </div>
+                    <div class="term-edit-button">
+                        <button class="edit">Edit</button>
+                    </div>
+                </div>
+
+                <div class="amortization">
+                    <label>Amortization</label>
+                    <div class="amortization-years">
+                        <select>
+                            <option value="25">25 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30">30 Years</option>
+                        </select>
+                    </div>
+                    <div class="amortization-months">
+                        <select>
+                            <option value="0">0 Month</option>
+                            <option value="1">1 Month</option>
+                            <option value="2">2 Months</option>
+                            <option value="3">3 Months</option>
+                        </select>
+                    </div>
+                    <div class="apply-button">
+                        <button class="apply-all">Apply to all</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3 Term -->
+            <div class="term-box" data-scenario="3">
+                <div class="rate-section">
+                    <div class="rate-header">
+                        <label>Rate</label>
+                        <div class="edit-rate">
+                            <a href="#">Add 8 rates</a>
+                        </div>
+                    </div>
+                    <div class="rate-input">
+                        <input type="text" value="5.25%">
+                    </div>
+                    <div class="term-selection">
+                        <div class="term-button active">5 Year Fixed</div>
+                    </div>
+                    <div class="term-edit-button">
+                        <button class="edit">Edit</button>
+                    </div>
+                </div>
+
+                <div class="amortization">
+                    <label>Amortization</label>
+                    <div class="amortization-years">
+                        <select>
+                            <option value="25">25 Years</option>
+                            <option value="20">20 Years</option>
+                            <option value="30">30 Years</option>
+                        </select>
+                    </div>
+                    <div class="amortization-months">
+                        <select>
+                            <option value="0">0 Month</option>
+                            <option value="1">1 Month</option>
+                            <option value="2">2 Months</option>
+                            <option value="3">3 Months</option>
+                        </select>
+                    </div>
+                    <div class="apply-button">
+                        <button class="apply-all">Apply to all</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="section-header">
+            <h2>Payment</h2>
+        </div>
+
+        <div class="payment-container">
+            <!-- Scenario 1 Payment -->
+            <div class="payment-box" data-scenario="1">
+                <div class="payment-frequency">
+                    <label>Payment Frequency</label>
+                    <div class="frequency-dropdown">
+                        <select>
+                            <option value="monthly">Monthly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="accelerated">Accelerated Bi-weekly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mortgage-payment">
+                    <div class="payment-header">
+                        <label>MORTGAGE PAYMENT</label>
+                        <button class="edit">Edit</button>
+                    </div>
+                    <div class="payment-amount">
+                        <span>$2,764.76</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 2 Payment -->
+            <div class="payment-box" data-scenario="2">
+                <div class="payment-frequency">
+                    <label>Payment Frequency</label>
+                    <div class="frequency-dropdown">
+                        <select>
+                            <option value="monthly">Monthly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="accelerated">Accelerated Bi-weekly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mortgage-payment">
+                    <div class="payment-header">
+                        <label>MORTGAGE PAYMENT</label>
+                        <button class="edit">Edit</button>
+                    </div>
+                    <div class="payment-amount">
+                        <span>$2,764.76</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scenario 3 Payment -->
+            <div class="payment-box" data-scenario="3">
+                <div class="payment-frequency">
+                    <label>Payment Frequency</label>
+                    <div class="frequency-dropdown">
+                        <select>
+                            <option value="monthly">Monthly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="accelerated">Accelerated Bi-weekly</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mortgage-payment">
+                    <div class="payment-header">
+                        <label>MORTGAGE PAYMENT</label>
+                        <button class="edit">Edit</button>
+                    </div>
+                    <div class="payment-amount">
+                        <span>$2,764.76</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="create-report-button-bottom">
+            <button class="create-report">Create a Comparison Report</button>
+        </div>
+
+        <!-- Home Expenses Section -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="home-expenses">Home Expenses</div>
+                <div class="tab" data-tab="liabilities">Liabilities (Debts)</div>
+                <div class="tab" data-tab="rental-income">Rental Income</div>
+            </div>
+
+            <div class="tab-content" id="home-expenses">
+                <div class="home-expenses-header">
+                    <h3>Enter Home expenses here</h3>
+                    <div class="toggle-group">
+                        <div class="toggle-option active">Multiple</div>
+                        <div class="toggle-option">Single</div>
+                    </div>
+                </div>
+
+                <div class="home-expenses-inputs">
+                    <div class="expense-item">
+                        <label>Property Tax (Annual)</label>
+                        <input type="text" value="$0">
+                    </div>
+                    <div class="expense-item">
+                        <label>Condo fees (Monthly)</label>
+                        <input type="text" value="$0">
+                    </div>
+                    <div class="expense-item">
+                        <label>Heat</label>
+                        <input type="text" value="$0">
+                    </div>
+                </div>
+
+                <div class="expenses-note">
+                    <p>Lenders are interested in knowing whether you can afford your mortgage, so they also consider home expenses and debt payments. Home Expenses include annual property tax, monthly condo fees and heating costs.</p>
+                </div>
+            </div>
+
+            <div class="tab-content" id="liabilities" style="display:none;">
+                <!-- Liabilities content goes here -->
+            </div>
+
+            <div class="tab-content" id="rental-income" style="display:none;">
+                <!-- Rental Income content goes here -->
+            </div>
+        </div>
+        
+        <!-- Comparison Results Section -->
+        <div class="comparison-results-section">
+            <div class="comparison-header">
+                <h2>Comparison Results</h2>
+                <div class="toggle-switch">
+                    <label class="switch-label">Show Differences</label>
+                    <div class="switch">
+                        <input type="checkbox" id="show-differences">
+                        <span class="slider round"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-buttons">
+                <button class="tab-btn active">Principal & Interest</button>
+                <button class="tab-btn">Total Monthly Cost</button>
+                <button class="tab-btn">Debt Service Ratios</button>
+                <button class="tab-btn">Required Income</button>
+                <button class="tab-btn">Pre-Payments</button>
+                <button class="tab-btn">Cash to Close</button>
+            </div>
+            
+            <div class="scenarios-comparison">
+                <!-- Scenario 1 -->
+                <div class="scenario-comparison-box scenario1">
+                    <div class="scenario-title">Scenario 1</div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Term Interest</div>
+                        <div class="item-value">$114,161.68</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Term Principal</div>
+                        <div class="item-value">$51,724.04</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Total Term Payments</div>
+                        <div class="item-value">$165,885.70</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Balance end of Term</div>
+                        <div class="item-value">$412,225.96</div>
+                    </div>
+                    
+                    <div class="base-scenario-badge">Base Scenario</div>
+                </div>
+                
+                <!-- Scenario 2 -->
+                <div class="scenario-comparison-box scenario2">
+                    <div class="scenario-title">Scenario 2</div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Term Interest</div>
+                        <div class="item-value">$114,161.68</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Term Principal</div>
+                        <div class="item-value">$51,724.04</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Total Term Payments</div>
+                        <div class="item-value">$165,885.70</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Balance end of Term</div>
+                        <div class="item-value">$412,225.96</div>
+                    </div>
+                    
+                    <button class="select-scenario-btn">Select Scenario</button>
+                </div>
+                
+                <!-- Scenario 3 -->
+                <div class="scenario-comparison-box scenario3">
+                    <div class="scenario-title">Scenario 3</div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Term Interest</div>
+                        <div class="item-value">$114,161.68</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Term Principal</div>
+                        <div class="item-value">$51,724.04</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Total Term Payments</div>
+                        <div class="item-value">$165,885.70</div>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="item-label">Balance end of Term</div>
+                        <div class="item-value">$412,225.96</div>
+                    </div>
+                    
+                    <button class="select-scenario-btn">Select Scenario</button>
+                </div>
+            </div>
+            
+            <!-- Interest Comparison Chart -->
+            <div class="interest-comparison-chart">
+                <h3>Interest Comparison Chart</h3>
+                <p>Visually compare the interest paid across multiple scenarios.</p>
+                
+                <div class="chart-container">
+                    <div class="y-axis">
+                        <div class="y-value">120K</div>
+                        <div class="y-value">100K</div>
+                        <div class="y-value">80K</div>
+                        <div class="y-value">60K</div>
+                        <div class="y-value">40K</div>
+                        <div class="y-value">20K</div>
+                        <div class="y-value">0</div>
+                    </div>
+                    
+                    <div class="chart-bars">
+                        <div class="chart-bar scenario1">
+                            <div class="bar-value">$114,162</div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar-label">Scenario 1</div>
+                        </div>
+                        
+                        <div class="chart-bar scenario2">
+                            <div class="bar-value">$114,162</div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar-label">Scenario 2</div>
+                        </div>
+                        
+                        <div class="chart-bar scenario3">
+                            <div class="bar-value">$114,162</div>
+                            <div class="bar" style="height: 80%;"></div>
+                            <div class="bar-label">Scenario 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="create-report-button-bottom">
+                <button class="create-report">Create a Comparison Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html> 

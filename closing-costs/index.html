@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closing Costs Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">WEB Calculators</a>
+            </div>
+            <nav class="calculator-tabs">
+                <ul>
+                    <li><a href="../maximum-mortgage/index.html">Maximum Mortgage</a></li>
+                    <li class="active"><a href="index.html">Closing Costs</a></li>
+                    <li><a href="../comparison-calculator/index.html">Compare Side by Side</a></li>
+                    <li><a href="../purchase/index.html">Purchase</a></li>
+                    <li><a href="../required-income/index.html">Required Income</a></li>
+                    <li><a href="../mortgage-calculator/index.html">Mortgage Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="calculator-container">
+        <h1>Closing Costs Calculator</h1>
+
+        <div class="calculator-form">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Location Section -->
+                <div class="input-section">
+                    <label for="location">Location</label>
+                    <div class="input-field">
+                        <input type="text" id="location" value="Toronto, ON">
+                    </div>
+                </div>
+
+                <!-- Purchase Price Section -->
+                <div class="input-section">
+                    <label for="purchase-price">Purchase Price</label>
+                    <div class="input-field">
+                        <input type="text" id="purchase-price" value="$888,000">
+                    </div>
+                    <div class="price-slider purchase-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Down Payment Section -->
+                <div class="input-section">
+                    <label for="down-payment">Down Payment</label>
+                    <div class="input-field">
+                        <input type="text" id="down-payment" value="$63,500">
+                    </div>
+                    <div class="price-slider down-payment-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                    <div class="down-payment-percentage">
+                        <span class="percentage">7.15%</span>
+                        <div class="dropdown-wrapper">
+                            <select id="down-payment-percentage-dropdown">
+                                <option value="5">5%</option>
+                                <option value="10">10%</option>
+                                <option value="15">15%</option>
+                                <option value="20">20%</option>
+                                <option value="25">25%</option>
+                                <option value="30">30%</option>
+                            </select>
+                            <div class="dropdown-arrow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amortization Section -->
+                <div class="input-section">
+                    <label for="amortization">Amortization</label>
+                    <div class="amortization-years-months">
+                        <div class="amortization-years">
+                            <input type="text" id="amortization-years" value="25" min="5" max="30">
+                        </div>
+                        <div class="amortization-months">
+                            <input type="text" id="amortization-months" value="0" min="0" max="11">
+                        </div>
+                    </div>
+                    <div class="amortization-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Ancillary Cost Section -->
+                <div class="section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zM6 19h12V9.157l-6-5.454-6 5.454V19z"
+                                    fill="#4361ee" />
+                            </svg>
+                        </div>
+                        <h3>Ancillary Cost</h3>
+                    </div>
+                    <p class="cost-description">
+                        Ancillary costs are additional costs that are often overlooked. Home buyers are usually surprised at how much their closing costs sums up to. You can use our closing cost calculator to calculate a more realistic amount and never be surprised again.
+                    </p>
+
+                    <!-- Appraisal -->
+                    <div class="cost-item">
+                        <div class="cost-label">Appraisal</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="appraisal" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider appraisal-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Home Inspection -->
+                    <div class="cost-item">
+                        <div class="cost-label">Home Inspection</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="home-inspection" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider home-inspection-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Moving Costs -->
+                    <div class="cost-item">
+                        <div class="cost-label">Moving Costs</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="moving-costs" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider moving-costs-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Title Insurance -->
+                    <div class="cost-item">
+                        <div class="cost-label">Title Insurance</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="title-insurance" value="$0">
+                        </div>
+                        <div class="info-icon required">i</div>
+                    </div>
+                    <div class="cost-slider title-insurance-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Legal Fees -->
+                    <div class="cost-item">
+                        <div class="cost-label">Legal Fees</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="legal-fees" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider legal-fees-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Tax Adjustments -->
+                    <div class="cost-item">
+                        <div class="cost-label">Tax Adjustments</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="tax-adjustments" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider tax-adjustments-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Lender Fee -->
+                    <div class="cost-item">
+                        <div class="cost-label">Lender Fee</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="lender-fee" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider lender-fee-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+
+                    <!-- Brokerage Fee -->
+                    <div class="cost-item">
+                        <div class="cost-label">Brokerage Fee</div>
+                        <div class="cost-input-field">
+                            <input type="text" id="brokerage-fee" value="$0">
+                        </div>
+                        <div class="info-icon">i</div>
+                    </div>
+                    <div class="cost-slider brokerage-fee-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <div class="results-box-container">
+                    <div class="fixed-results-box">
+                        <!-- Results Box -->
+                        <div class="results-box">
+                            <div class="settings-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                </svg>
+                            </div>
+                            <div class="result-header">
+                                <div class="result-title">Total Estimated Cost</div>
+                                <div class="result-amount">$32,327</div>
+                            </div>
+
+                            <div class="result-item land-transfer">
+                                <div class="result-label">Land Transfer</div>
+                                <div class="result-dot"></div>
+                                <div class="result-value">$28,470</div>
+                            </div>
+
+                            <div class="result-item location">
+                                <div class="result-label">Location</div>
+                                <div class="location-dropdown">
+                                    <span class="location-value">Toronto</span>
+                                    <span class="dropdown-arrow">▼</span>
+                                </div>
+                            </div>
+
+                            <div class="result-breakdown">
+                                <div class="breakdown-item">
+                                    <div class="breakdown-label">Provincial</div>
+                                    <div class="breakdown-value">+ $14,235</div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="breakdown-label">Municipal</div>
+                                    <div class="breakdown-value">+ $14,235</div>
+                                </div>
+                                <div class="breakdown-item">
+                                    <div class="breakdown-label">Total Rebates</div>
+                                    <div class="breakdown-value">$0</div>
+                                </div>
+                            </div>
+
+                            <div class="homebuyer-checkboxes">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="newly-built-home">
+                                    <label for="newly-built-home">Newly Built Home</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="first-time-homebuyer">
+                                    <label for="first-time-homebuyer">First-time Homebuyer</label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" id="foreign-buyer">
+                                    <label for="foreign-buyer">I'm a foreign buyer</label>
+                                </div>
+                            </div>
+
+                            <div class="result-item mortgage-insurance">
+                                <div class="result-label">PST on Mortgage Insurance</div>
+                                <div class="result-value">$3,857</div>
+                            </div>
+
+                            <div class="result-item ancillary-cost">
+                                <div class="result-label">Ancillary cost</div>
+                                <div class="result-value">$0</div>
+                            </div>
+
+                            <div class="download-section">
+                                <button class="download-btn">Get your Report</button>
+                                <div class="app-note">It's better in the app</div>
+                                <div class="brand">Powered by: Bendigi Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html> 

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">WEB Calculators</a>
+            </div>
+            <nav class="calculator-tabs">
+                <ul>
+                    <li><a href="../maximum-mortgage/index.html">Maximum Mortgage</a></li>
+                    <li><a href="../closing-costs/index.html">Closing Costs</a></li>
+                    <li><a href="../comparison-calculator/index.html">Compare Side by Side</a></li>
+                    <li class="active"><a href="index.html">Purchase</a></li>
+                    <li><a href="../required-income/index.html">Required Income</a></li>
+                    <li><a href="../mortgage-calculator/index.html">Mortgage Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="calculator-container">
+        <h1>Purchase Calculator</h1>
+
+        <div class="calculator-form">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Purchase Price Section -->
+                <div class="input-section">
+                    <label for="purchase-price">Home Price</label>
+                    <div class="input-field">
+                        <input type="text" id="purchase-price" value="$900,000">
+                    </div>
+                    <div class="price-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Location Section -->
+                <div class="input-section">
+                    <label for="location">Location</label>
+                    <div class="input-field">
+                        <input type="text" id="location" value="Toronto, ON">
+                    </div>
+                </div>
+
+                <!-- Down Payment Section -->
+                <div class="input-section">
+                    <label for="down-payment">Down Payment</label>
+                    <div class="input-group">
+                        <div class="input">
+                            <div class="input-field">
+                                <input type="text" id="down-payment" value="$315,000">
+                            </div>
+                        </div>
+                        <div class="select-wrapper">
+                            <select id="down-payment-percent" class="dropdown-select">
+                                <option value="5">5%</option>
+                                <option value="10">10%</option>
+                                <option value="15">15%</option>
+                                <option value="20">20%</option>
+                                <option value="25">25%</option>
+                                <option value="30">30%</option>
+                                <option value="35" selected>35%</option>
+                                <option value="40">40%</option>
+                                <option value="50">50%</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="price-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Payment Frequency Section -->
+                <div class="input-section">
+                    <label for="payment-frequency">Payment Frequency</label>
+                    <div class="select-wrapper full-width">
+                        <select id="payment-frequency" class="dropdown-select">
+                            <option value="monthly" selected>Monthly</option>
+                            <option value="accelerated-biweekly">Accelerated Bi-weekly</option>
+                            <option value="biweekly">Bi-weekly</option>
+                            <option value="accelerated-weekly">Accelerated Weekly</option>
+                            <option value="weekly">Weekly</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Separator -->
+                <div class="separator"></div>
+
+                <!-- Checkboxes -->
+                <div class="checkbox-section">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="first-time-homebuyer">
+                        <label for="first-time-homebuyer">First-time Homebuyer</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="newly-built-home">
+                        <label for="newly-built-home">Newly Built Home</label>
+                    </div>
+                </div>
+
+                <!-- Rate Section -->
+                <div class="section rate-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm-3.5-6H14a.5.5 0 1 0 0-1h-4a2.5 2.5 0 1 1 0-5h1V6h2v2h2.5v2H10a.5.5 0 1 0 0 1h4a2.5 2.5 0 1 1 0 5h-1v2h-2v-2H8.5v-2z"
+                                    fill="#4361ee" />
+                            </svg>
+                        </div>
+                        <h3>Rate</h3>
+                    </div>
+                    <p class="rate-description">Your mortgage interest rate can either be Fixed for the term or Variable (which changes with the prime rate). The Rate Term is the contract length with a lender.</p>
+
+                    <div class="rate-section-content">
+                        <div class="rate-input-wrapper">
+                            <div class="rate-label">Rate</div>
+                            <div class="input-field">
+                                <input type="text" id="rate-input" value="6.29%">
+                            </div>
+                        </div>
+
+                        <div class="rate-slider">
+                            <div class="slider-track"></div>
+                            <div class="slider-thumb"></div>
+                        </div>
+
+                        <div class="rate-type-container">
+                            <div class="rate-type-buttons">
+                                <button class="rate-btn active">FIXED</button>
+                                <button class="rate-btn">VARIABLE</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="term-group">
+                        <div class="rate-label">Rate Term</div>
+                        <div class="select-wrapper full-width">
+                            <select id="loan-term" class="dropdown-select">
+                                <option value="1">1 Year</option>
+                                <option value="2">2 Year</option>
+                                <option value="3">3 Year</option>
+                                <option value="4">4 Year</option>
+                                <option value="5" selected>5 Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Amortization Section -->
+                <div class="section amortization-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm1 2v14h16V5H4zm15 7l-3.536 3.536-1.414-1.415L16.172 12 14.05 9.879l1.414-1.415L19 12zm-10 0l3.536-3.536 1.414 1.415L7.828 12l2.122 2.121-1.414 1.415L5 12z"
+                                    fill="#4361ee" />
+                            </svg>
+                        </div>
+                        <h3>Amortization</h3>
+                        <a href="#" class="view-link">View schedule</a>
+                    </div>
+                    <p class="amortization-description">Amortization is the total time it takes to pay off your mortgage in full. New mortgages usually start with an amortization of 25 years or 30 years in Canada.</p>
+
+                    <div class="amortization-input-wrapper">
+                        <label class="amortization-label">Amortization</label>
+                        <div class="amortization-years-months">
+                            <div class="amortization-years">
+                                <input type="text" id="amortization-years" value="25" min="5" max="30">
+                            </div>
+                            <div class="amortization-months">
+                                <input type="text" id="amortization-months" value="0" min="0" max="11">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="amortization-slider">
+                        <div class="slider-track"></div>
+                        <div class="slider-thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Pay Your Mortgage Faster Section -->
+                <div class="section faster-payment-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M13 16.172l5.364-5.364 1.414 1.414L12 20l-7.778-7.778 1.414-1.414L11 16.172V4h2v12.172z"
+                                    fill="#4361ee" />
+                            </svg>
+                        </div>
+                        <h3>Pay your mortgage faster</h3>
+                        <div class="toggle-switch">
+                            <div class="toggle-track"></div>
+                            <div class="toggle-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Home Expenses Section -->
+                <div class="section expenses-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M19 21H5a1 1 0 0 1-1-1v-9H1l10.327-9.388a1 1 0 0 1 1.346 0L23 11h-3v9a1 1 0 0 1-1 1zM6 19h12V9.157l-6-5.454-6 5.454V19z"
+                                    fill="#4361ee" />
+                            </svg>
+                        </div>
+                        <h3>Home Expenses</h3>
+                    </div>
+                    <p class="expenses-description">To budget better and calculate a more realistic Total Monthly Cost, enter the additional home expenses here.</p>
+
+                    <div class="expenses-input-group">
+                        <div class="expense-label">PROPERTY TAX</div>
+                        <div class="property-tax-inputs">
+                            <div class="expense-input-field monthly-field">
+                                <label>Monthly</label>
+                                <input type="text" id="property-tax-monthly" value="$833.333">
+                            </div>
+                            <div class="expense-input-field yearly-field">
+                                <label>Yearly</label>
+                                <input type="text" id="property-tax-yearly" value="$10,000">
+                            </div>
+                        </div>
+                        
+                 
+
+                        <div class="expense-item">
+                            <div class="expense-label">Condo fees (Monthly)</div>
+                            <div class="expense-input-field with-info">
+                                <input type="text" id="condo-fees" value="$0">
+                                <span class="info-icon">i</span>
+                            </div>
+                            <!-- Added condo fees slider -->
+                            <div class="condo-fees-slider">
+                                <div class="slider-track"></div>
+                                <div class="slider-thumb"></div>
+                            </div>
+                        </div>
+
+                        <div class="expense-item">
+                            <div class="expense-label">Heat</div>
+                            <div class="expense-input-field with-info">
+                                <input type="text" id="heat-expense" value="$200">
+                                <span class="info-icon">i</span>
+                            </div>
+                            <div class="heat-slider">
+                                <div class="slider-track"></div>
+                                <div class="slider-thumb"></div>
+                            </div>
+                        </div>
+
+                        <div class="expense-item">
+                            <div class="expense-label">Other monthly expenses</div>
+                            <div class="expense-input-field with-info">
+                                <input type="text" id="other-monthly-expenses" value="$0">
+                                <span class="info-icon">i</span>
+                            </div>
+                            <!-- Added slider for Other Monthly Expenses -->
+                            <div class="other-expenses-slider">
+                                <div class="slider-track"></div>
+                                <div class="slider-thumb"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rental Income Section -->
+                <div class="section rental-income-section">
+                    <div class="section-header">
+                        <div class="icon-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path
+                                    d="M9.33 11.5h2.17A4.5 4.5 0 0 1 16 16H8.999L9 17h8v-1a5.578 5.578 0 0 0-.886-3H19a5 5 0 0 1 4.516 2.851C21.151 18.972 17.322 21 13 21c-2.761 0-5.1-.59-7-1.625L6 10.071A6.967 6.967 0 0 1 9.33 11.5zM5 19a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9zM18 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm-7-3a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"
+                                    fill="#4361ee" />
+                            </svg>
+                        </div>
+                        <h3>Add Rental Income</h3>
+                        <div class="toggle-switch">
+                            <div class="toggle-track"></div>
+                            <div class="toggle-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column (Results) -->
+            <div class="right-column">
+                <div class="results-box-container">
+                    <div class="fixed-results-box">
+                        <!-- Results Box -->
+                        <div class="results-box">
+                            <div class="settings-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                </svg>
+                            </div>
+                            <div class="result-header">
+                                <div class="result-title">Total Monthly Cost</div>
+                                <div class="result-amount">$5,140</div>
+                            </div>
+
+                            <div class="cost-bar">
+                                <div class="mortgage-bar"></div>
+                                <div class="expenses-bar"></div>
+                            </div>
+
+                            <div class="payment-details">
+                                <div class="payment-item">
+                                    <div class="payment-dot monthly"></div>
+                                    <div class="payment-label">Monthly Mortgage</div>
+                                    <div class="payment-value">$4,106.37</div>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-dot home"></div>
+                                    <div class="payment-label">Home Expenses</div>
+                                    <div class="payment-value">$1,033.33</div>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-dot other"></div>
+                                    <div class="payment-label">Other Expenses</div>
+                                    <div class="payment-value">$0.00</div>
+                                </div>
+                                <div class="payment-item">
+                                    <div class="payment-dot rental"></div>
+                                    <div class="payment-label">Rental Income</div>
+                                    <div class="payment-value">$0.00</div>
+                                </div>
+                            </div>
+
+                            <!-- Tab buttons -->
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="mortgage">Mortgage Amount</button>
+                                <button class="tab-btn" data-tab="closing">Closing Costs</button>
+                            </div>
+
+                            <!-- Tab content -->
+                            <div class="tab-content-container">
+                                <div id="mortgage-tab" class="tab-content active">
+                                    <div class="totals-row">
+                                        <span class="totals-label">Mortgage Amount</span>
+                                        <span class="totals-value">$585,000.00</span>
+                                    </div>
+                                </div>
+                                <div id="closing-tab" class="tab-content">
+                                    <div class="closing-cost-row">
+                                        <span class="closing-cost-label">Land Transfer Tax</span>
+                                        <span class="closing-cost-value">$14,475.00</span>
+                                    </div>
+                                    <div class="closing-cost-row">
+                                        <span class="closing-cost-label">Legal Fees</span>
+                                        <span class="closing-cost-value">$2,000.00</span>
+                                    </div>
+                                    <div class="closing-cost-row">
+                                        <span class="closing-cost-label">Title Insurance</span>
+                                        <span class="closing-cost-value">$300.00</span>
+                                    </div>
+                                    <div class="closing-cost-row total">
+                                        <span class="closing-cost-label">Total</span>
+                                        <span class="closing-cost-value">$29,250.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="details-section active">
+                                <h3>Details</h3>
+                                <div class="details-item">
+                                    <div class="details-label">Mortgage Payment</div>
+                                    <div class="details-value">$4,106.37</div>
+                                </div>
+
+                                <div class="details-item">
+                                    <div class="details-label">Net Mortgage</div>
+                                    <div class="details-value">$585,000.00</div>
+                                </div>
+
+                                <div class="details-item mortgage-insurance">
+                                    <div class="checkbox-container">
+                                        <input type="checkbox" id="mortgage-insurance">
+                                        <label for="mortgage-insurance">Mortgage Insurance</label>
+                                    </div>
+                                    <div class="details-value">+ $0.00</div>
+                                </div>
+
+                                <div class="details-item">
+                                    <div class="details-label">Interest paid over term</div>
+                                    <div class="details-value">$173,323.82</div>
+                                </div>
+
+                                <div class="details-item">
+                                    <div class="details-label">Balance at end of Term</div>
+                                    <div class="details-value">$527,665.93</div>
+                                </div>
+
+                                <div class="details-item">
+                                    <div class="details-label">Effective Amortization</div>
+                                    <div class="details-value">25 Years</div>
+                                </div>
+                            </div>
+
+                            <div class="download-section">
+                                <button class="download-btn">Get your Report</button>
+                                <div class="app-note">It's better in the app</div>
+                                <div class="brand">Powered by Bendigi Inc.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
